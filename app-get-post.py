@@ -6,7 +6,7 @@ class servidor(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
         self.end_headers()
-        self.wfile.write(b"Servidor em funcionamento com o GET")
+        self.wfile.write(b"Servidor em funcionamento com o GET!!")
 #Metodo POST(novo)
     def do_POST(self):
         tamanho = int(self.headers['Content-Length']) 
