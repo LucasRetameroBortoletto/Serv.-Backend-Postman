@@ -1,4 +1,5 @@
 from http.server import HTTPServer,BaseHTTPRequestHandler
+#importa uma biblioteca
 
 class servidor(BaseHTTPRequestHandler):
 #Metodo GET(usado anteriormente)
@@ -8,17 +9,15 @@ class servidor(BaseHTTPRequestHandler):
         self.wfile.write(b"Servidor em funcionamento com o GET")
 #Metodo POST(novo)
     def do_POST(self):
-        #identifica o tamanho dos arquivos enviados na requisição
         tamanho = int(self.headers['Content-Length']) 
-
-        #le os dados enviados
+        #Verifica o tamanho do arquivo enviado
         dados = self.rfile.read(tamanho)
-        
-        #Mostra os dados recebidos do terminal
+        #Exibi os dados recebidos no terminal
         print("Dados recebidos: ", dados.decode())
 
         self.send_response(200)
         self.end_headers()
-        self.wfile.write(b"POST recebido!") #retorna uma mensagem para o cliente 
+        self.wfile.write(b"POST recebido!")  
+        #retorna uma mensagem para o cliente
 
 HTTPServer(("0.0.0.0", 8000), servidor).serve_forever()
