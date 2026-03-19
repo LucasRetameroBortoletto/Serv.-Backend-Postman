@@ -9,7 +9,7 @@ class servidor(BaseHTTPRequestHandler):
 
     def do_POST(self):
 
-        tamanho = int(self.headers['Content-Length'])
+        tamanho = int(self.headers['Content-Length']) 
 
         dados = self.rfile.read(tamanho)
 
@@ -20,3 +20,4 @@ class servidor(BaseHTTPRequestHandler):
         self.wfile.write(b"Post do cloud recebido")
 
 HTTPServer(("0.0.0.0", 8000), servidor).serve_forever()
+#comentario apenas para testar o git, porque sim.
